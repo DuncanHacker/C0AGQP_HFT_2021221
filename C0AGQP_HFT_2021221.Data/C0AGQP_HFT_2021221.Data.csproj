@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SongAuthorAlbum.mdf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SongAuthorAlbum.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\C0AGQP_HFT_2021221.Models\C0AGQP_HFT_2021221.Models.csproj" />
   </ItemGroup>
 
