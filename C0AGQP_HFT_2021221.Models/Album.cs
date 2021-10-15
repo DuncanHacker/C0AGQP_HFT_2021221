@@ -14,11 +14,11 @@ namespace C0AGQP_HFT_2021221.Models
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 		[Required]
-		public int Name { get; set; }
+		public string Name { get; set; }
 		[ForeignKey(nameof(Author))]
 		public int AuthorId { get; set; }
-		public Author Author { get; set; }
-		public ICollection<Song> Songs { get; set; }
+		public virtual Author Author { get; set; }
+		public virtual ICollection<Song> Songs { get; set; }
 		public Album()
 		{
 			Songs = new HashSet<Song>();

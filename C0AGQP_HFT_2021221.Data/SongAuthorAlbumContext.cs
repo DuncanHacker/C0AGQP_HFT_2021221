@@ -54,6 +54,21 @@ namespace C0AGQP_HFT_2021221.Data
 				.HasForeignKey(album => album.AuthorId)
 				.OnDelete(DeleteBehavior.Restrict);
 			});
+
+			Author bieber = new Author() { Id = 1, Name = "Justin Bieber" };
+			Author mgk = new Author() { Id = 2, Name = "Machine Gun Kelly" };
+			Author dualipa = new Author() { Id = 3, Name = "Dua Lipa" };
+
+			Album purpose = new Album() { Id = 1, Name = "Purpose", AuthorId = bieber.Id };
+			Album ticketstomydownfall = new Album() { Id = 2, Name = "Tickets to my Downfall", AuthorId = mgk.Id };
+
+			Song loveyourself = new Song() { Id = 1, Title = "Love Yourself", AuthorId = bieber.Id, Genre = "Pop", AlbumId = purpose.Id };
+			Song bloodyvalentine = new Song() { Id = 2, Title = "Bloody Valentine", AuthorId = mgk.Id, Genre = "Punk Rock", AlbumId = ticketstomydownfall.Id };
+
+			modelBuilder.Entity<Author>().HasData(bieber, mgk, dualipa);
+			modelBuilder.Entity<Album>().HasData(purpose, ticketstomydownfall);
+			modelBuilder.Entity<Song>().HasData(loveyourself, bloodyvalentine);
 		}
+
 	}
 }

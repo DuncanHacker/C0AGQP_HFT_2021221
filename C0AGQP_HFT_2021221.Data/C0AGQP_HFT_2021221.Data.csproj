@@ -6,10 +6,14 @@
 
   <ItemGroup>
     <None Remove="SongAuthorAlbum.mdf" />
+    <None Remove="SongAuthorAlbum_log.ldf" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="SongAuthorAlbum.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SongAuthorAlbum_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

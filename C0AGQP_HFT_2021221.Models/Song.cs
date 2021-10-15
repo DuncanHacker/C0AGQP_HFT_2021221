@@ -13,11 +13,11 @@ namespace C0AGQP_HFT_2021221.Models
 		public string Title { get; set; }
 		public string Genre { get; set; }
 		[ForeignKey(nameof(Author))]
-		public string AuthorId { get; set; }
+		public int AuthorId { get; set; }
 		[NotMapped]
 		public virtual Author Author { get; set; }
 		[ForeignKey(nameof(Album))]
 		public int AlbumId { get; set; }
-		public Album Album { get; set; }		
+		public virtual Album Album { get; set; }		
 	}
 }
