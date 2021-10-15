@@ -13,7 +13,8 @@ namespace C0AGQP_HFT_2021221.Client
 
 			var Authors = database.Authors.ToArray();
 			var Albums = database.Albums.ToArray();
-			var Songs = database.Songs.ToArray();			
+			var Songs = database.Songs.ToArray();
+			
 		}
 	}
 }

@@ -61,13 +61,16 @@ namespace C0AGQP_HFT_2021221.Data
 
 			Album purpose = new Album() { Id = 1, Name = "Purpose", AuthorId = bieber.Id };
 			Album ticketstomydownfall = new Album() { Id = 2, Name = "Tickets to my Downfall", AuthorId = mgk.Id };
+			Album futurenostalgia = new Album() { Id = 3, Name = "Future Nostalgia (The Moonlight Edition)", AuthorId = dualipa.Id };
 
 			Song loveyourself = new Song() { Id = 1, Title = "Love Yourself", AuthorId = bieber.Id, Genre = "Pop", AlbumId = purpose.Id };
 			Song bloodyvalentine = new Song() { Id = 2, Title = "Bloody Valentine", AuthorId = mgk.Id, Genre = "Punk Rock", AlbumId = ticketstomydownfall.Id };
+			Song levitating = new Song() { Id = 3, Title = "Levitating", AuthorId = dualipa.Id, Genre = "Pop", AlbumId = futurenostalgia.Id };
+			Song loveagain = new Song() { Id = 4, Title = "Love Again", AuthorId = dualipa.Id, Genre = "Pop", AlbumId = futurenostalgia.Id };
 
 			modelBuilder.Entity<Author>().HasData(bieber, mgk, dualipa);
-			modelBuilder.Entity<Album>().HasData(purpose, ticketstomydownfall);
-			modelBuilder.Entity<Song>().HasData(loveyourself, bloodyvalentine);
+			modelBuilder.Entity<Album>().HasData(purpose, ticketstomydownfall, futurenostalgia);
+			modelBuilder.Entity<Song>().HasData(loveyourself, bloodyvalentine, levitating, loveagain);
 		}
 
 	}
