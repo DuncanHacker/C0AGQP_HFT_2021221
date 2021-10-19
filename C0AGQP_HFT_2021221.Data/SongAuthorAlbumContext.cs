@@ -58,7 +58,7 @@ namespace C0AGQP_HFT_2021221.Data
 			Author bieber = new Author() { Id = 1, Name = "Justin Bieber" };
 			Author mgk = new Author() { Id = 2, Name = "Machine Gun Kelly" };
 			Author dualipa = new Author() { Id = 3, Name = "Dua Lipa" };
-
+			 
 			Album purpose = new Album() { Id = 1, Name = "Purpose", AuthorId = bieber.Id };
 			Album ticketstomydownfall = new Album() { Id = 2, Name = "Tickets to my Downfall", AuthorId = mgk.Id };
 			Album futurenostalgia = new Album() { Id = 3, Name = "Future Nostalgia (The Moonlight Edition)", AuthorId = dualipa.Id };
@@ -71,7 +71,7 @@ namespace C0AGQP_HFT_2021221.Data
 			modelBuilder.Entity<Author>().HasData(bieber, mgk, dualipa);
 			modelBuilder.Entity<Album>().HasData(purpose, ticketstomydownfall, futurenostalgia);
 			modelBuilder.Entity<Song>().HasData(loveyourself, bloodyvalentine, levitating, loveagain);
-		}
+		} 
 
 	}
 }

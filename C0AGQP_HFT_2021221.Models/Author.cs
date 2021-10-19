@@ -21,6 +21,7 @@ namespace C0AGQP_HFT_2021221.Models
 		public Author()
 		{
 			Songs = new HashSet<Song>();
+			Albums = new HashSet<Album>();
 		}
 	}
 }
