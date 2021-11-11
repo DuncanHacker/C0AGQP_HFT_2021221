@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace C0AGQP_HFT_2021221.Logic
 {
-	public class CarLogic
+	public class SongLogic
 	{
 		ISongRepository songRepo;
-		public CarLogic(ISongRepository songRepo)
+		public SongLogic(ISongRepository songRepo)
 		{
 			this.songRepo = songRepo;
 		}
@@ -41,5 +41,16 @@ namespace C0AGQP_HFT_2021221.Logic
 			songRepo.Update(song);
 		}
 
+		public int HowManyJustinSongs()
+		{
+			var result = songRepo.ReadAll().Where(x => x.Author.Name == "Justin Bieber").Count();
+			return result;
+		}
+
+		public int HowManyDuaLipaSongs()
+		{
+			var result = songRepo.ReadAll().Where(x => x.Author.Name == "Dua Lipa").Count();
+			return result;
+		}
 	}
 }

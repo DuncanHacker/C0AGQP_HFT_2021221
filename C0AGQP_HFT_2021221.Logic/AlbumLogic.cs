@@ -40,5 +40,13 @@ namespace C0AGQP_HFT_2021221.Logic
 		{
 			albumRepo.Update(album);
 		}
+
+		public int HowManySongsInAlbumFutureNostalgia()
+		{
+			var result = albumRepo.ReadAll()
+				.SelectMany(y => y.Songs.Where(x => x.Album.Name == "Future Nostalgia (The MoonLight Edition)")).ToList().Count;
+			return result;
+		}
+
 	}
 }
