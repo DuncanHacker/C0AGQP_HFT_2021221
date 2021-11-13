@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace C0AGQP_HFT_2021221.Logic
 {
-	public class SongLogic
+	public class SongLogic : ISongLogic
 	{
 		ISongRepository songRepo;
 		public SongLogic(ISongRepository songRepo)
@@ -52,6 +52,6 @@ namespace C0AGQP_HFT_2021221.Logic
 			var result = songRepo.ReadAll().Where(x => x.Author.Name == "Dua Lipa").Count();
 			return result;
 		}
-		
+
 	}
 }

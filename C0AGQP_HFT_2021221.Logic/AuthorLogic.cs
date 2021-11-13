@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace C0AGQP_HFT_2021221.Logic
 {
-	public class AuthorLogic
+	public class AuthorLogic : IAuthorLogic
 	{
 		IAuthorRepository authorRepo;
 		public AuthorLogic(IAuthorRepository authorRepo)
@@ -40,6 +40,6 @@ namespace C0AGQP_HFT_2021221.Logic
 		{
 			authorRepo.Update(author);
 		}
-		
+
 	}
 }
