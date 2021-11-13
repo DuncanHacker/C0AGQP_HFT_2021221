@@ -23,6 +23,9 @@ namespace C0AGQP_HFT_2021221.Client
 			var JustinSongs = songlogic.HowManyJustinSongs();
 			var DuaLipaSongs = songlogic.HowManyDuaLipaSongs();
 			var FutureNostalgiaSongs = albumlogic.HowManySongsInAlbumFutureNostalgia();
+			var AviciiSongsList = albumlogic.ListAviciiSongs();
+			var FemaleSongList = albumlogic.FemaleSongs();
+			var SeanPaulDancehallArray = albumlogic.SeanPaulDanceHallArray();
 			;
 		}
 	}

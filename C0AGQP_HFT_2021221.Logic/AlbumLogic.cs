@@ -41,6 +41,12 @@ namespace C0AGQP_HFT_2021221.Logic
 			albumRepo.Update(album);
 		}
 
+		public IEnumerable<Song> ListAviciiSongs()
+		{
+			var result = albumRepo.ReadAll()
+				.SelectMany(y => y.Songs.Where(x => x.Author.Name == "Avicii")).ToList();
+			return result;
+		}
 		public int HowManySongsInAlbumFutureNostalgia()
 		{
 			var result = albumRepo.ReadAll()
@@ -48,5 +54,24 @@ namespace C0AGQP_HFT_2021221.Logic
 			return result;
 		}
 
+		public IEnumerable<Song> FemaleSongs()
+		{
+			var result = albumRepo.ReadAll()
+				.SelectMany(y => y.Songs.Where(x => x.Author.Name == "Dua Lipa" || x.Author.Name == "Rita Ora")).ToList();
+			return result;
+		}
+
+		public IEnumerable<Song> SeanPaulDanceHallArray()
+		{
+			var result = albumRepo.ReadAll()
+				.SelectMany(y => y.Songs.Where(x => x.Genre == "Dancehall" && x.Author.Name == "Sean Paul")).ToArray();
+			return result;
+		}
+
+		public void GroupByAuthors()
+		{
+			var result = albumRepo.ReadAll()
+				.GroupBy(x => x.Author.Name);			
+		}
 	}
 }

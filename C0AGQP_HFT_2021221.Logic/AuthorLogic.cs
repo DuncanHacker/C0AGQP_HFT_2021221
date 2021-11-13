@@ -40,5 +40,6 @@ namespace C0AGQP_HFT_2021221.Logic
 		{
 			authorRepo.Update(author);
 		}
+		
 	}
 }

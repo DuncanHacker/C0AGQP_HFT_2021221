@@ -52,5 +52,6 @@ namespace C0AGQP_HFT_2021221.Logic
 			var result = songRepo.ReadAll().Where(x => x.Author.Name == "Dua Lipa").Count();
 			return result;
 		}
+		
 	}
 }
