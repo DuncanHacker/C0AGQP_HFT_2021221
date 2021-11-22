@@ -1,7 +1,7 @@
 ﻿using C0AGQP_HFT_2021221.Data;
 using C0AGQP_HFT_2021221.Logic;
 using C0AGQP_HFT_2021221.Models;
-using C0AGQP_HFT_2021221.Repository;
+//using C0AGQP_HFT_2021221.Repository;
 using System;
 using System.Linq;
 
@@ -11,7 +11,7 @@ namespace C0AGQP_HFT_2021221.Client
 	{
 		static void Main(string[] args)
 		{
-			SongAuthorAlbumContext database = new SongAuthorAlbumContext();
+			/*SongAuthorAlbumContext database = new SongAuthorAlbumContext();
 			ISongRepository songrepo = new SongRepository(database);
 			IAlbumRepository albumrepo = new AlbumRepository(database);
 			IAuthorRepository authorrepo = new AuthorRepository(database);
@@ -27,7 +27,7 @@ namespace C0AGQP_HFT_2021221.Client
 			var FemaleSongList = albumlogic.FemaleSongs();
 			var SeanPaulDancehallArray = albumlogic.SeanPaulDanceHallArray();
 			var MalePopSongList = albumlogic.MalePopSongs();
-			var StoriesSongList = albumlogic.StoriesSongs();
+			var StoriesSongList = albumlogic.StoriesSongs();*/
 			;
 		}
 	}

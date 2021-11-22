@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace C0AGQP_HFT_2021221.Models
 {
@@ -15,9 +16,12 @@ namespace C0AGQP_HFT_2021221.Models
 		[ForeignKey(nameof(Author))]
 		public int AuthorId { get; set; }
 		[NotMapped]
+		[JsonIgnore]
 		public virtual Author Author { get; set; }
 		[ForeignKey(nameof(Album))]
 		public int AlbumId { get; set; }
+		[NotMapped]
+		[JsonIgnore]
 		public virtual Album Album { get; set; }		
 	}
 }
