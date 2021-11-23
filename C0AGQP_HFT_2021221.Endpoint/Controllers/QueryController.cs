@@ -25,5 +25,10 @@ namespace C0AGQP_HFT_2021221.Endpoint.Controllers
 		{
 			return albumLogic.FemaleSongs();
 		}
+		[HttpGet]
+		public int QueryTwo()
+		{
+			return albumLogic.HowManySongsInAlbumFutureNostalgia();
+		}
 	}
 }

@@ -49,7 +49,7 @@ namespace C0AGQP_HFT_2021221.Logic
 
 		public int HowManySongsInAlbumFutureNostalgia()
 		{
-			var result = albumRepo.ReadAll()
+			var result = albumRepo.ReadAll().AsEnumerable()
 				.SelectMany(y => y.Songs.Where(x => x.Album.Name == "Future Nostalgia (The MoonLight Edition)")).ToList().Count;
 			return result;
 		}
@@ -63,7 +63,7 @@ namespace C0AGQP_HFT_2021221.Logic
 
 		public IEnumerable<Song> FemaleSongs()
 		{
-			var result = albumRepo.ReadAll()
+			var result = albumRepo.ReadAll().AsEnumerable()
 				.SelectMany(y => y.Songs.Where(x => x.Author.Name == "Dua Lipa" || x.Author.Name == "Rita Ora")).ToList();
 			return result;
 		}
