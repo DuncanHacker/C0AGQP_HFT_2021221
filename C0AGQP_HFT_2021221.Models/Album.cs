@@ -16,6 +16,7 @@ namespace C0AGQP_HFT_2021221.Models
 		public int Id { get; set; }
 		[Required]
 		public string Name { get; set; }
+		public int ReleaseYear { get; set; }
 		[ForeignKey(nameof(Author))]
 		public int AuthorId { get; set; }
 		[NotMapped]

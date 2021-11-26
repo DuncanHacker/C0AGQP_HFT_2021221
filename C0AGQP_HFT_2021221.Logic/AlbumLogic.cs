@@ -40,8 +40,26 @@ namespace C0AGQP_HFT_2021221.Logic
 		{
 			albumRepo.Update(album);
 		}
+		public int HowManyDuaLipaAlbums()
+		{
+			var result = albumRepo.ReadAll().Where(x => x.Author.Name == "Dua Lipa").Count();
+			return result;
+		}
 
-		public void GroupByAuthors()
+		public int AlbumsFrom2015()
+		{
+			var result = albumRepo.ReadAll().Where(x => x.ReleaseYear == 2015).Count();
+			return result;
+		}
+
+		public int MGKAlbumsFrom2020()
+		{
+			var result = albumRepo.ReadAll().Where(x => x.ReleaseYear == 2020 && x.Author.Name == "Machine Gun Kelly").Count();
+			return result;
+		}
+
+		#region
+		/*public void GroupByAuthors()
 		{
 			var result = albumRepo.ReadAll()
 				.GroupBy(x => x.Author.Name);
@@ -87,12 +105,8 @@ namespace C0AGQP_HFT_2021221.Logic
 		{
 			var result = albumRepo.ReadAll().SelectMany(y => y.Songs.Where(x => x.Album.Name == "Stories")).OrderBy(z => z.Author.Name).ToList();
 			return result;
-		}
+		}*/
+		#endregion
 
-		public int HowManyDuaLipa()
-		{
-			var result = albumRepo.ReadAll().Where(x => x.Author.Name == "Dua Lipa").Count();
-			return result;
-		}
 	}
 }

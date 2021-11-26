@@ -59,5 +59,42 @@ namespace C0AGQP_HFT_2021221.Logic
 			return result;
 		}
 
+		public IEnumerable<Song> ListAviciiSongs()
+		{
+			var result = songRepo.ReadAll().Where(x => x.Author.Name == "Avicii").ToList();
+			return result;
+		}
+
+		public IEnumerable<Song> FemaleSongs()
+		{
+			var result = songRepo.ReadAll().Where(x => x.Author.Name == "Dua Lipa" || x.Author.Name == "Rita Ora").ToList();
+			return result;
+		}
+
+		public IEnumerable<Song> SeanPaulDanceHallArray()
+		{
+			var result = songRepo.ReadAll().Where(x => x.Genre == "Dancehall" && x.Author.Name == "Sean Paul").ToArray();
+			return result;
+		}
+
+		public IEnumerable<Song> MalePopSongs()
+		{
+			var result = songRepo.ReadAll().Where(x => (x.Author.Name == "Avicii" || x.Author.Name == "Justin Bieber" ||
+				x.Author.Name == "Sean Paul" || x.Author.Name == "Machine Gun Kelly") && x.Genre == "Pop").ToList();
+			return result;
+		}
+
+		public IEnumerable<Song> MGKAlbumsSongs()
+		{
+			var result = songRepo.ReadAll().Where(x => x.Album.Author.Name == "Machine Gun Kelly").ToList();
+			return result;
+		}
+
+		public IEnumerable<Song> StoriesSongs()
+		{
+			var result = songRepo.ReadAll().Where(x => x.Album.Name == "Stories").ToArray();
+			return result;
+		}
+
 	}
 }

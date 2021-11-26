@@ -55,6 +55,15 @@ namespace C0AGQP_HFT_2021221.Data
 				.OnDelete(DeleteBehavior.Restrict);
 			});
 
+			modelBuilder.Entity<Song>(entity =>
+			{
+				entity
+				.HasOne(song => song.Album)
+				.WithMany(album => album.Songs)
+				.HasForeignKey(song => song.AlbumId)
+				.OnDelete(DeleteBehavior.Restrict);
+			});
+
 			Author bieber = new Author() { Id = 1, Name = "Justin Bieber" };
 			Author mgk = new Author() { Id = 2, Name = "Machine Gun Kelly" };
 			Author dualipa = new Author() { Id = 3, Name = "Dua Lipa" };
@@ -62,12 +71,12 @@ namespace C0AGQP_HFT_2021221.Data
 			Author seanpaul = new Author() { Id = 5, Name = "Sean Paul" };
 			Author avicii = new Author() { Id = 6, Name = "Avicii" };
 			
-			Album purpose = new Album() { Id = 1, Name = "Purpose", AuthorId = bieber.Id };
-			Album ticketstomydownfall = new Album() { Id = 2, Name = "Tickets to my Downfall", AuthorId = mgk.Id };
-			Album futurenostalgia = new Album() { Id = 3, Name = "Future Nostalgia (The Moonlight Edition)", AuthorId = dualipa.Id };
-			Album phoenix = new Album() { Id = 4, Name = "Phoenix", AuthorId = ritaora.Id };
-			Album thetrinity = new Album() { Id = 5, Name = "The Trinity", AuthorId = seanpaul.Id };
-			Album stories = new Album() { Id = 6, Name = "Stories", AuthorId = avicii.Id };
+			Album purpose = new Album() { Id = 1, Name = "Purpose", AuthorId = bieber.Id, ReleaseYear = 2015 };
+			Album ticketstomydownfall = new Album() { Id = 2, Name = "Tickets to my Downfall", AuthorId = mgk.Id, ReleaseYear = 2020 };
+			Album futurenostalgia = new Album() { Id = 3, Name = "Future Nostalgia (The Moonlight Edition)", AuthorId = dualipa.Id, ReleaseYear = 2020 };
+			Album phoenix = new Album() { Id = 4, Name = "Phoenix", AuthorId = ritaora.Id, ReleaseYear = 2018 };
+			Album thetrinity = new Album() { Id = 5, Name = "The Trinity", AuthorId = seanpaul.Id, ReleaseYear = 2005 };
+			Album stories = new Album() { Id = 6, Name = "Stories", AuthorId = avicii.Id, ReleaseYear = 2015 };
 
 			Song loveyourself = new Song() { Id = 1, Title = "Love Yourself", AuthorId = bieber.Id, Genre = "Pop", AlbumId = purpose.Id };
 			Song bloodyvalentine = new Song() { Id = 2, Title = "Bloody Valentine", AuthorId = mgk.Id, Genre = "Punk Rock", AlbumId = ticketstomydownfall.Id };

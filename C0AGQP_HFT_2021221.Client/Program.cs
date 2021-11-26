@@ -13,7 +13,7 @@ namespace C0AGQP_HFT_2021221.Client
 	{
 		static void Main(string[] args)
 		{
-			//#region
+			#region
 			/*SongAuthorAlbumContext database = new SongAuthorAlbumContext();
 			ISongRepository songrepo = new SongRepository(database);
 			IAlbumRepository albumrepo = new AlbumRepository(database);
@@ -32,9 +32,9 @@ namespace C0AGQP_HFT_2021221.Client
 			//var SeanPaulDancehallArray = albumlogic.SeanPaulDanceHallArray();
 			//var MalePopSongList = albumlogic.MalePopSongs();
 			//var StoriesSongList = albumlogic.StoriesSongs();
-			;
+			;*/
 			#endregion
-			/*Thread.Sleep(12000);
+			Thread.Sleep(12000);
 			RestService restService = new RestService("http://localhost:29693");
 			var albums = restService.Get<Album>("Album");
 			var menu = new ConsoleMenu(args, level: 0)
@@ -51,7 +51,7 @@ namespace C0AGQP_HFT_2021221.Client
 						config.EnableBreadcrumb = true;
 					});
 
-			menu.Show();*/
+			menu.Show();
 			;
 		}
 	}

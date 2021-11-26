@@ -12,5 +12,11 @@ namespace C0AGQP_HFT_2021221.Logic
 		Song Read(int id);
 		IEnumerable<Song> ReadAll();
 		void Update(Song song);
+		public IEnumerable<Song> ListAviciiSongs();
+		public IEnumerable<Song> FemaleSongs();
+		public IEnumerable<Song> SeanPaulDanceHallArray();
+		public IEnumerable<Song> MalePopSongs();
+		public IEnumerable<Song> MGKAlbumsSongs();
+		public IEnumerable<Song> StoriesSongs();
 	}
 }

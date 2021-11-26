@@ -7,16 +7,20 @@ namespace C0AGQP_HFT_2021221.Logic
 	{
 		void Create(Album album);
 		void Delete(int id);
-		IEnumerable<Song> FemaleSongs();
+		#region
+		/*IEnumerable<Song> FemaleSongs();
 		void GroupByAuthors();
 		int HowManySongsInAlbumFutureNostalgia();
 		IEnumerable<Song> ListAviciiSongs();
-		IEnumerable<Song> MalePopSongs();
+		IEnumerable<Song> MalePopSongs();				
+		IEnumerable<Song> SeanPaulDanceHallArray();
+		IEnumerable<Song> StoriesSongs();*/
+		#endregion
 		Album Read(int id);
 		IEnumerable<Album> ReadAll();
-		IEnumerable<Song> SeanPaulDanceHallArray();
-		IEnumerable<Song> StoriesSongs();
 		void Update(Album album);
-		public int HowManyDuaLipa();
+		public int HowManyDuaLipaAlbums();
+		public int AlbumsFrom2015();
+		public int MGKAlbumsFrom2020();
 	}
 }
