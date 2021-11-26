@@ -53,5 +53,11 @@ namespace C0AGQP_HFT_2021221.Logic
 			return result;
 		}
 
+		public int HowManySongInStories()
+		{
+			var result = songRepo.ReadAll().Where(x => x.Album.Name == "Stories").Count();
+			return result;
+		}
+
 	}
 }

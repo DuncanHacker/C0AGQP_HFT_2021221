@@ -11,7 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\C0AGQP_HFT_2021221.Data\C0AGQP_HFT_2021221.Data.csproj" />
+    <ProjectReference Include="..\C0AGQP_HFT_2021221.Logic\C0AGQP_HFT_2021221.Logic.csproj" />
     <ProjectReference Include="..\C0AGQP_HFT_2021221.Models\C0AGQP_HFT_2021221.Models.csproj" />
+    <ProjectReference Include="..\C0AGQP_HFT_2021221.Repository\C0AGQP_HFT_2021221.Repository.csproj" />
   </ItemGroup>
 
 </Project>

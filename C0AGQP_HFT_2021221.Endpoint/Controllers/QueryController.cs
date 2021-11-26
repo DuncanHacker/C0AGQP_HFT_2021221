@@ -30,5 +30,11 @@ namespace C0AGQP_HFT_2021221.Endpoint.Controllers
 		{
 			return albumLogic.HowManySongsInAlbumFutureNostalgia();
 		}
+
+		[HttpGet]
+		public int QueryThree()
+		{
+			return albumLogic.HowManyDuaLipa();
+		}
 	}
 }

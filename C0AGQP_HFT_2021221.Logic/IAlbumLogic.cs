@@ -17,5 +17,6 @@ namespace C0AGQP_HFT_2021221.Logic
 		IEnumerable<Song> SeanPaulDanceHallArray();
 		IEnumerable<Song> StoriesSongs();
 		void Update(Album album);
+		public int HowManyDuaLipa();
 	}
 }
