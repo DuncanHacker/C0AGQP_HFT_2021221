@@ -46,8 +46,6 @@ namespace C0AGQP_HFT_2021221.Client
 			var albums = restService.Get<Album>("Album");
 			var authors = restService.Get<Author>("Author");
 			var songs = restService.Get<Song>("Song");
-			var q1 = restService.Get<int>("QueryOne");
-			var q4 = restService.Get<IEnumerable<Song>>("QueryFour");
 			int choice = int.Parse(Console.ReadLine());
 			switch (choice)
 			{
@@ -75,11 +73,62 @@ namespace C0AGQP_HFT_2021221.Client
 					}
 					break;
 				case 4:
-						Console.WriteLine("How many Dua Lipa Songs are there: " + q1);
+					//Queries(restService);
+					
 					break;
 				default:
 					break;
 			}
+		}
+		static void Queries(RestService restService)
+		{
+			var q1 = restService.GetSingle<int>("query/QueryOne");
+			var q2 = restService.GetSingle<int>("query/QueryTwo");
+			var q3 = restService.GetSingle<int>("query/QueryThree");
+			var q4 = restService.Get<IEnumerable<Song>>("query/QueryFour");
+			var q5 = restService.Get<IEnumerable<Song>>("query/QueryFive");
+			var q6 = restService.Get<IEnumerable<Song>>("query/QuerySix");
+			var q7 = restService.Get<IEnumerable<Song>>("query/QuerySeven");
+			var q8 = restService.Get<IEnumerable<Song>>("query/QueryEight");
+			var q9 = restService.Get<IEnumerable<Song>>("query/QueryNine");
+			int choice = int.Parse(Console.ReadLine());
+			switch (choice)
+			{
+				case 1:
+					Console.WriteLine("How many Dua Lipa Songs are there: " + q1);
+					break;
+				case 2:
+					Console.WriteLine("Albums from 2015: " + q2);
+					break;
+				case 3:
+					Console.WriteLine("Machine Gun Kelly Albums from 2020: " + q3);
+					break;
+				case 4:
+					Console.WriteLine("Female Songs: ");
+					foreach (var song in q4)
+					{
+						Console.WriteLine("Song Name: " + song);
+					}
+					break;
+				case 5:
+					Console.WriteLine("How many Dua Lipa Songs are there: " + q1);
+					break;
+				case 6:
+					Console.WriteLine("How many Dua Lipa Songs are there: " + q1);
+					break;
+				case 7:
+					Console.WriteLine("How many Dua Lipa Songs are there: " + q1);
+					break;
+				case 8:
+					Console.WriteLine("How many Dua Lipa Songs are there: " + q1);
+					break;
+				case 9:
+					Console.WriteLine("How many Dua Lipa Songs are there: " + q1);
+					break;
+				default:
+					break;
+			}
+
 		}
 	}
 }
