@@ -4,6 +4,7 @@ using C0AGQP_HFT_2021221.Models;
 using C0AGQP_HFT_2021221.Repository;
 using ConsoleTools;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
@@ -35,24 +36,50 @@ namespace C0AGQP_HFT_2021221.Client
 			;*/
 			#endregion
 			Thread.Sleep(12000);
+			MainMenu();	
+		}
+
+		static void MainMenu()
+		{
+			Console.WriteLine("1. Albums List, 2. Authors List, 3. Songs List, 4. - 13. Queries");
 			RestService restService = new RestService("http://localhost:29693");
 			var albums = restService.Get<Album>("Album");
-			var menu = new ConsoleMenu(args, level: 0)
-				.Add("One", () => Console.WriteLine(albums))
-				.Add("Change me", (thisMenu) => thisMenu.CurrentItem.Name = "I am changed!")
-				.Add("Close", ConsoleMenu.Close)
-				.Add("Exit", () => Environment.Exit(0))
-				.Configure(config =>
+			var authors = restService.Get<Author>("Author");
+			var songs = restService.Get<Song>("Song");
+			var q1 = restService.Get<int>("QueryOne");
+			var q4 = restService.Get<IEnumerable<Song>>("QueryFour");
+			int choice = int.Parse(Console.ReadLine());
+			switch (choice)
+			{
+				case 1:
+					foreach (var album in albums)
 					{
-						config.Selector = "--> ";
-						config.EnableFilter = false;
-						config.Title = "Main menu";
-						config.EnableWriteTitle = true;
-						config.EnableBreadcrumb = true;
-					});
-
-			menu.Show();
-			;
+						Console.WriteLine("Album ID: " + album.Id);
+						Console.WriteLine("Album Name: " + album.Name);
+						Console.WriteLine("Release Year: " + album.ReleaseYear);
+					}
+					break;
+				case 2:
+					foreach (var author in authors)
+					{
+						Console.WriteLine("Author ID: " + author.Id);
+						Console.WriteLine("Author Name: " + author.Name);
+					}
+					break;
+				case 3:
+					foreach (var song in songs)
+					{
+						Console.WriteLine("Song ID: " + song.Id);
+						Console.WriteLine("Song Title: " + song.Title);
+						Console.WriteLine("Song Genre: " + song.Genre);
+					}
+					break;
+				case 4:
+						Console.WriteLine("How many Dua Lipa Songs are there: " + q1);
+					break;
+				default:
+					break;
+			}
 		}
 	}
 }
