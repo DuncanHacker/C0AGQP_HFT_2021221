@@ -14,9 +14,12 @@ namespace C0AGQP_HFT_2021221.Test
 	[TestFixture]
 	public class Tester
 	{
+		SongLogic songLogic;
 		AlbumLogic albumLogic;
 		public Tester()
 		{
+			var MockSongRepo = new Mock<ISongRepository>();
+			songLogic = new SongLogic(MockSongRepo.Object);
 			var MockAlbumRepo = new Mock<IAlbumRepository>();
 			albumLogic = new AlbumLogic(MockAlbumRepo.Object);
 
@@ -31,6 +34,10 @@ namespace C0AGQP_HFT_2021221.Test
 			Author seanpaul = new Author()
 			{
 				Name = "Sean Paul"
+			};
+			Author mgk = new Author()
+			{
+				Name = "Machine Gun Kelly"
 			};
 			Author bieber = new Author()
 			{
@@ -67,69 +74,119 @@ namespace C0AGQP_HFT_2021221.Test
 					Title = "Sunset Jesus",
 					Author = avicii,
 					Genre = "EDM"
+				},
+				new Song()
+				{
+					Title = "New Rules",
+					Author = dualipa,
+					Genre = "Pop"
+				},
+				new Song()
+				{
+					Title = "Bloody Valentine",
+					Author = mgk,
+					Genre = "Punk Rock"
 				}
-			};
+			}.AsQueryable();
+
 			var albums = new List<Album>()
 			{
 				new Album()
 				{
 					Name = "True",
 					Author = avicii,
-					Songs = songs
+					ReleaseYear = 2015
+					
 				},
 				new Album()
 				{
 					Name = "Dua Lipa",
 					Author = dualipa,
-					Songs = songs
+					ReleaseYear = 2015
 				},
 				new Album()
 				{
 					Name = "The Trinity",
 					Author = seanpaul,
-					Songs = songs
+					
 				},
 				new Album()
 				{
 					Name = "Stories",
 					Author = avicii,
-					Songs = songs
+					
 				}
-			}.AsQueryable();		
-
+			}.AsQueryable();
+			List<Album> albums2 = new List<Album>();
+			
+			MockSongRepo.Setup((t) => t.ReadAll()).Returns(songs);
 			MockAlbumRepo.Setup((t) => t.ReadAll()).Returns(albums);
+		}
+
+		[Test]
+		public void CreateSongTest()
+		{
+			Assert.That(() => songLogic.Create(new Song()
+			{
+				Title = null,
+				Genre = "Pop"
+			}), Throws.Exception);
+		}
+		[Test]
+		public void DeleteSongTest()
+		{
+			Assert.That(() => songLogic.Delete(30), Throws.Nothing);
 		}
 
 		[Test]
 		public void AviciiSongTest()
 		{			
-			var result = albumLogic.ListAviciiSongs().ToArray();
+			var result = songLogic.ListAviciiSongs().ToArray();
 			Assert.That(result[0].Title, Is.EqualTo("Wake Me Up"));
 		}
 		[Test]
 		public void FemaleSongsTest()
 		{
-			var result = albumLogic.FemaleSongs().ToArray();
+			var result = songLogic.FemaleSongs().ToArray();
 			Assert.That(result[0].Title, Is.EqualTo("IDGAF"));
 		}
 		[Test]
 		public void SeanPaulDanceHallTest()
 		{
-			var result = albumLogic.SeanPaulDanceHallArray().ToArray();
+			var result = songLogic.SeanPaulDanceHallArray().ToArray();
 			Assert.That(result[0].Title, Is.EqualTo("Temperature"));
 		}
 		[Test]
 		public void MalePopSongTest()
 		{
-			var result = albumLogic.MalePopSongs().ToArray();
+			var result = songLogic.MalePopSongs().ToArray();
 			Assert.That(result[0].Title, Is.EqualTo("What Do You Mean"));
 		}
 		[Test]
-		public void StoriesSongsTest()
+		public void AlbumsFrom2015Test()
 		{
-			var result = albumLogic.StoriesSongs().ToArray();
-			Assert.That(result[0].Title, Is.EqualTo("Sunset Jesus"));
+			var result = albumLogic.AlbumsFrom2015();
+			Assert.That(result, Is.EqualTo(2));
 		}
+		[Test]
+		public void HowManyDuaLipaSongsTest()
+		{
+			var result = songLogic.HowManyDuaLipaSongs();
+			Assert.That(result, Is.EqualTo(2));
+		}
+		[Test]
+		public void MGKAlbumsFrom2020Test()
+		{
+			var result = albumLogic.MGKAlbumsFrom2020();
+			Assert.That(result, Is.EqualTo(0));
+		}
+		[Test]
+		public void PunkRockSongsTest()
+		{
+			var result = songLogic.PunkRockSongs().ToArray();
+			Assert.That(result[0].Title, Is.EqualTo("Bloody Valentine"));
+		}
+
 
 	}
 	

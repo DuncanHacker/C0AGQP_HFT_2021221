@@ -18,6 +18,10 @@ namespace C0AGQP_HFT_2021221.Logic
 
 		public void Create(Song song)
 		{
+			if (song.Title == null)
+			{
+				throw new NullReferenceException("Your Song Title Is Empty");
+			}
 			songRepo.Create(song);
 		}
 
@@ -95,6 +99,16 @@ namespace C0AGQP_HFT_2021221.Logic
 			var result = songRepo.ReadAll().Where(x => x.Album.Name == "Stories").ToArray();
 			return result;
 		}
-
+		//API
+		public IEnumerable<Song> PunkRockSongs()
+		{
+			var result = songRepo.ReadAll().Where(x => x.Genre == "Punk Rock");
+			return result;
+		}
+		public IEnumerable<Song> RitaOraPopSongs()
+		{
+			var result = songRepo.ReadAll().Where(x => x.Author.Name == "Rita Ora" && x.Genre == "Pop");
+			return result;
+		}
 	}
 }

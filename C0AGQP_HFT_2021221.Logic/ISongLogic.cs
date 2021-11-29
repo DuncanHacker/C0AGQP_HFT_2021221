@@ -18,5 +18,7 @@ namespace C0AGQP_HFT_2021221.Logic
 		public IEnumerable<Song> MalePopSongs();
 		public IEnumerable<Song> MGKAlbumsSongs();
 		public IEnumerable<Song> StoriesSongs();
+		public IEnumerable<Song> PunkRockSongs();
+		public IEnumerable<Song> RitaOraPopSongs();
 	}
 }

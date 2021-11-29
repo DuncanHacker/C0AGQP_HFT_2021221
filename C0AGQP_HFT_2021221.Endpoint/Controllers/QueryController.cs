@@ -76,5 +76,17 @@ namespace C0AGQP_HFT_2021221.Endpoint.Controllers
 		{
 			return songLogic.StoriesSongs();
 		}
+
+		[HttpGet]
+		public IEnumerable<Song> QueryTen()
+		{
+			return songLogic.PunkRockSongs();
+		}
+
+		[HttpGet]
+		public IEnumerable<Song> QueryEleven()
+		{
+			return songLogic.RitaOraPopSongs();
+		}
 	}
 }
