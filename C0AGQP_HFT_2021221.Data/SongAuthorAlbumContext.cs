@@ -35,7 +35,7 @@ namespace C0AGQP_HFT_2021221.Data
 				.HasOne(song => song.Author)
 				.WithMany(author => author.Songs)
 				.HasForeignKey(song => song.AuthorId)
-				.OnDelete(DeleteBehavior.Restrict);
+				.OnDelete(DeleteBehavior.Cascade);
 			});
 
 			modelBuilder.Entity<Author>(entity =>
@@ -43,7 +43,7 @@ namespace C0AGQP_HFT_2021221.Data
 				entity
 				.HasMany(author => author.Songs)
 				.WithOne(song => song.Author)				
-				.OnDelete(DeleteBehavior.Restrict);
+				.OnDelete(DeleteBehavior.NoAction);
 			});
 
 			modelBuilder.Entity<Album>(entity =>
@@ -52,7 +52,7 @@ namespace C0AGQP_HFT_2021221.Data
 				.HasOne(album => album.Author)
 				.WithMany(author => author.Albums)
 				.HasForeignKey(album => album.AuthorId)
-				.OnDelete(DeleteBehavior.Restrict);
+				.OnDelete(DeleteBehavior.Cascade);
 			});
 
 			modelBuilder.Entity<Song>(entity =>
@@ -61,7 +61,7 @@ namespace C0AGQP_HFT_2021221.Data
 				.HasOne(song => song.Album)
 				.WithMany(album => album.Songs)
 				.HasForeignKey(song => song.AlbumId)
-				.OnDelete(DeleteBehavior.Restrict);
+				.OnDelete(DeleteBehavior.Cascade);
 			});
 
 			Author bieber = new Author() { Id = 1, Name = "Justin Bieber" };

@@ -71,7 +71,7 @@ namespace C0AGQP_HFT_2021221.Logic
 
 		public IEnumerable<Song> FemaleSongs()
 		{
-			var result = songRepo.ReadAll().Where(x => x.Author.Name == "Dua Lipa" || x.Author.Name == "Rita Ora").ToList();
+			var result = songRepo.ReadAll().Where(x => x.Author.Name == "Dua Lipa" || x.Author.Name == "Rita Ora");
 			return result;
 		}
 
