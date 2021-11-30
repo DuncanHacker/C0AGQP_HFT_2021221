@@ -36,7 +36,7 @@ namespace C0AGQP_HFT_2021221.Client
 			;*/
 			#endregion
 			Thread.Sleep(12000);
-			MainMenu();
+			MainMenu();a
 		}
 
 		static void MainMenu()
