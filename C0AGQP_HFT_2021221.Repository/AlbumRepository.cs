@@ -34,7 +34,7 @@ namespace C0AGQP_HFT_2021221.Repository
 
 		public void Delete(int id)
 		{
-			database.Remove(Read(id));
+			database.Albums.Remove(Read(id));
 			database.SaveChanges();
 		}
 
