@@ -21,9 +21,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Column="1" DataContext="{Binding SelectedAuthor}">
+        <StackPanel Grid.Column="1">
             <Label Content="Name" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding Name}" Padding="10" Margin="0,0,0,30"/>
+            <TextBox Text="{Binding SelectedAuthor.Name}" Padding="10" Margin="0,0,0,30"/>
             <Button Content="Create Author" Command="{Binding CreateAuthorCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete Author" Command="{Binding DeleteAuthorCommand}" Margin="10" Padding="10"/>
             <Button Content="Update Author" Command="{Binding UpdateAuthorCommand}" Margin="10" Padding="10"/>

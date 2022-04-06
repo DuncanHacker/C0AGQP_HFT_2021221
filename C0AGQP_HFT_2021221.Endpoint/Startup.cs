@@ -1,4 +1,5 @@
 using C0AGQP_HFT_2021221.Data;
+using C0AGQP_HFT_2021221.Endpoint.Services;
 using C0AGQP_HFT_2021221.Logic;
 using C0AGQP_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -29,6 +30,8 @@ namespace C0AGQP_HFT_2021221.Endpoint
 			services.AddTransient<ISongRepository, SongRepository>();
 			services.AddTransient<IAuthorRepository, AuthorRepository>();
 
+			services.AddSignalR();
+
 			services.AddTransient<SongAuthorAlbumContext, SongAuthorAlbumContext>();
 		}
 
@@ -45,6 +48,7 @@ namespace C0AGQP_HFT_2021221.Endpoint
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllers();
+				endpoints.MapHub<SignalRHub>("/hub");
 			});
 		}
 	}

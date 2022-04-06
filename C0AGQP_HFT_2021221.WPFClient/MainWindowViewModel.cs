@@ -20,7 +20,18 @@ namespace C0AGQP_HFT_2021221.WPFClient
         public Author SelectedAuthor
         {
             get { return selectedAuthor; }
-            set { SetProperty(ref selectedAuthor, value); (DeleteAuthorCommand as RelayCommand).NotifyCanExecuteChanged(); }
+            set {
+                if (value != null)
+                {
+                    selectedAuthor = new Author()
+                    {
+                        Name = value.Name,
+                        Id = value.Id
+                    };
+                    OnPropertyChanged();
+                    (DeleteAuthorCommand as RelayCommand).NotifyCanExecuteChanged();
+                }
+            }
         }
 
         public ICommand CreateAuthorCommand { get; set; }
@@ -39,17 +50,18 @@ namespace C0AGQP_HFT_2021221.WPFClient
         {
             if (!IsInDesignMode)
             {
-                Authors = new RestCollection<Author>("http://localhost:29693/", "author");
-                CreateAuthorCommand = new RelayCommand(() =>
-                {
-                    Authors.Add(new Author()
+                Authors = new RestCollection<Author>("http://localhost:29693/", "author", "hub");
+                CreateAuthorCommand = new RelayCommand(
+                    () => Authors.Add(new Author()
                     {
-                        Name = "Panic! at the Disco"
-                    });
-                });
+                        Name = SelectedAuthor.Name
+                    }));
+                UpdateAuthorCommand = new RelayCommand(
+                    () => Authors.Update(SelectedAuthor));
                 DeleteAuthorCommand = new RelayCommand(
                     () => Authors.Delete(SelectedAuthor.Id),
                     () => SelectedAuthor != null);
+                SelectedAuthor = new Author();
             }           
         }
     }
