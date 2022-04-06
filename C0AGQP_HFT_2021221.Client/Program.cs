@@ -41,6 +41,8 @@ namespace C0AGQP_HFT_2021221.Client
 
 		static void MainMenu()
 		{
+            #region RestServiceOriginal
+            /*
 			Console.WriteLine("1. Albums List, 2. Authors List, 3. Songs List, 4. Queries, 5. Post, 6. Put, 7. Delete");
 			RestService restService = new RestService("http://localhost:29693");
 			#region RestServiceData
@@ -163,7 +165,8 @@ namespace C0AGQP_HFT_2021221.Client
 					break;
 				default:
 					break;
-			}
-		}
-	}
+			}*/
+            #endregion
+        }
+    }
 }
