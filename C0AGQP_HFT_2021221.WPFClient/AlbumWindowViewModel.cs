@@ -55,7 +55,8 @@ namespace C0AGQP_HFT_2021221.WPFClient
                 CreateAlbumCommand = new RelayCommand(
                     () => Albums.Add(new Album()
                     {
-                        Name = SelectedAlbum.Name
+                        Name = SelectedAlbum.Name,
+                        AuthorId = 1               
                     }));
                 UpdateAlbumCommand = new RelayCommand(
                     () => Albums.Update(SelectedAlbum));

@@ -28,7 +28,7 @@
             <Button Content="Delete Author" Command="{Binding DeleteAuthorCommand}" Margin="10" Padding="10"/>
             <Button Content="Update Author" Command="{Binding UpdateAuthorCommand}" Margin="10" Padding="10"/>
             <Button Content="Albums" Margin="10" Click="Albums_Click" Padding="10"/>
-            <Button Content="Songs" Margin="10" Padding="10"/>
+            <Button Content="Songs" Margin="10" Click="Songs_Click" Padding="10"/>
         </StackPanel>
     </Grid>
 </Window>
