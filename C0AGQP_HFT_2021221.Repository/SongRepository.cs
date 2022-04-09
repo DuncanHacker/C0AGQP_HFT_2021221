@@ -41,10 +41,13 @@ namespace C0AGQP_HFT_2021221.Repository
 		public void Update(Song song)
 		{
 			var oldsong = Read(song.Id);
+			oldsong.Id = song.Id;
 			oldsong.Title = song.Title;
 			oldsong.Genre = song.Genre;
-			oldsong.AuthorId = song.AuthorId;
-			oldsong.AlbumId = song.AlbumId;
+			oldsong.AuthorId = 1;
+			oldsong.AlbumId = 1;
+			oldsong.Album = song.Album;
+			oldsong.Author = song.Author;
 			database.SaveChanges();
 		}
 	}

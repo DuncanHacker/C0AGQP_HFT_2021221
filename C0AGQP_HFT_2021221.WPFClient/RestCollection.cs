@@ -16,7 +16,7 @@ namespace C0AGQP_HFT_2021221.WPFClient
     {
         HttpClient client;
 
-        public RestService(string baseurl, string pingableEndpoint = "author")
+        public RestService(string baseurl, string pingableEndpoint = "album")
         {
             bool isOk = false;
             do

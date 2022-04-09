@@ -41,8 +41,12 @@ namespace C0AGQP_HFT_2021221.Repository
 		public void Update(Album album)
 		{
 			var oldalbum = Read(album.Id);
+			oldalbum.Id = album.Id;
 			oldalbum.Name = album.Name;
-			oldalbum.AuthorId = album.AuthorId;
+			oldalbum.AuthorId = 1;
+			oldalbum.ReleaseYear = album.ReleaseYear;
+			oldalbum.Songs = album.Songs;
+			oldalbum.Author = album.Author;
 			database.SaveChanges();
 		}
 	}

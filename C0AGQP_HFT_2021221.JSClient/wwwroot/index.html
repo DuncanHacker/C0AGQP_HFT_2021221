@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Author UI</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Author Catalog</h1>
+
+    <div id="formdiv">
+        <label>Author Name</label>
+        <input type="text" id="authorname" />
+        <button type="button" onclick="create()">Add Author</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+            <tr>
+                <td></td>
+                <td></td>                
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>

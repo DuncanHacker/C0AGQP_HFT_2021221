@@ -24,17 +24,5 @@ namespace C0AGQP_HFT_2021221.WPFClient
         {
             InitializeComponent();
         }
-
-        private void Albums_Click(object sender, RoutedEventArgs e)
-        {
-            AlbumWindow albumWindow = new AlbumWindow();
-            albumWindow.Show();
-        }
-
-        private void Songs_Click(object sender, RoutedEventArgs e)
-        {
-            SongWindow songWindow = new SongWindow();
-            songWindow.Show();
-        }
     }
 }

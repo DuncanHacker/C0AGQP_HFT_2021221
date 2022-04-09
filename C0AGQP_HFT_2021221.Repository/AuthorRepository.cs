@@ -41,6 +41,7 @@ namespace C0AGQP_HFT_2021221.Repository
 		public void Update(Author author)
 		{
 			var oldauthor = Read(author.Id);
+			oldauthor.Id = author.Id;
 			oldauthor.Name = author.Name;
 			database.SaveChanges();
 		}
