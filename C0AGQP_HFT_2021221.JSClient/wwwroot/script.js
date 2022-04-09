@@ -46,7 +46,7 @@ async function getdata() {
 
 function display() {
     document.getElementById('resultarea').innerHTML = "";
-    actors.forEach(t => {
+    authors.forEach(t => {
         document.getElementById('resultarea').innerHTML +=
             "<tr><td>" + t.id + "</td><td>"
             + t.name + "</td><td>" +
@@ -72,11 +72,11 @@ function remove(id) {
 
 function create() {
     let name = document.getElementById('authorname').value;
-    fetch('http://localhost:53910/actor', {
+    fetch('http://localhost:29693/author', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            { authorName: name })
+            { authorname: name })
     })
         .then(response => response)
         .then(data => {
