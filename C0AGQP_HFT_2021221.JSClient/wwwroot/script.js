@@ -5,7 +5,7 @@ setupSignalR();
 
 function setupSignalR() {
     connection = new signalR.HubConnectionBuilder()
-        .withUrl("http://localhost:29693/author")
+        .withUrl("http://localhost:29693/hub")
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
@@ -40,6 +40,7 @@ async function getdata() {
         .then(x => x.json())
         .then(y => {
             authors = y;
+            console.log(y);
             display();
         });
 }
@@ -56,7 +57,7 @@ function display() {
 }
 
 function remove(id) {
-    fetch('http://localhost:29693/author' + id, {
+    fetch('http://localhost:29693/author/' + id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json', },
         body: null
@@ -76,7 +77,7 @@ function create() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
-            { authorname: name })
+            { Name: name })
     })
         .then(response => response)
         .then(data => {
