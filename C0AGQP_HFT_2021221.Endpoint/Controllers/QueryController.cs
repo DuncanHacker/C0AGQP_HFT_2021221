@@ -1,7 +1,9 @@
-﻿using C0AGQP_HFT_2021221.Logic;
+﻿using C0AGQP_HFT_2021221.Endpoint.Services;
+using C0AGQP_HFT_2021221.Logic;
 using C0AGQP_HFT_2021221.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,12 @@ namespace C0AGQP_HFT_2021221.Endpoint.Controllers
 	{
 		IAlbumLogic albumLogic;
 		ISongLogic songLogic;
-		public QueryController(IAlbumLogic albumLogic, ISongLogic songLogic)
+		IHubContext<SignalRHub> hub;
+		public QueryController(IAlbumLogic albumLogic, ISongLogic songLogic, IHubContext<SignalRHub> hub)
 		{
 			this.albumLogic = albumLogic;
 			this.songLogic = songLogic;
+			this.hub = hub;
 		}
 
 		// GET: /query/ListAviciiSongs

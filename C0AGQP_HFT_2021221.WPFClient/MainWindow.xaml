@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:C0AGQP_HFT_2021221.WPFClient"
         mc:Ignorable="d"
-        Title="Author Editor" Height="1200" Width="800">
+        Title="Author Editor" Height="900" Width="1600">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>

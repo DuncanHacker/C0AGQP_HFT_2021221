@@ -101,6 +101,8 @@ namespace C0AGQP_HFT_2021221.WPFClient
             if (!IsInDesignMode)
             {
                 Authors = new RestCollection<Author>("http://localhost:29693/", "author", "hub");
+                Albums = new RestCollection<Album>("http://localhost:29693/", "album", "hub");
+                Songs = new RestCollection<Song>("http://localhost:29693/", "song", "hub");
                 CreateAuthorCommand = new RelayCommand(
                     () => Authors.Add(new Author()
                     {
@@ -110,12 +112,10 @@ namespace C0AGQP_HFT_2021221.WPFClient
                     () => Authors.Update(SelectedAuthor));
                 DeleteAuthorCommand = new RelayCommand(
                     () => Authors.Delete(SelectedAuthor.Id),
-                    () => SelectedAuthor != null);
-                SelectedAuthor = new Author();
-            }
-            if (!IsInDesignMode)
-            {
-                Albums = new RestCollection<Album>("http://localhost:29693/", "album", "hub");
+                    () => { return SelectedAuthor != null; });
+                
+
+                
                 CreateAlbumCommand = new RelayCommand(
                     () => Albums.Add(new Album()
                     {
@@ -123,15 +123,12 @@ namespace C0AGQP_HFT_2021221.WPFClient
                         AuthorId = SelectedAuthor.Id
                     }));
                 UpdateAlbumCommand = new RelayCommand(
-                    () => Albums.Update(SelectedAlbum));                
+                    () => Albums.Update(SelectedAlbum));
                 DeleteAlbumCommand = new RelayCommand(
                     () => Albums.Delete(SelectedAlbum.Id),
-                    () => SelectedAlbum != null);
-                SelectedAlbum = new Album();
-            }
-            if (!IsInDesignMode)
-            {
-                Songs = new RestCollection<Song>("http://localhost:29693/", "song", "hub");
+                    () => { return SelectedAlbum != null; });                
+
+                
                 CreateSongCommand = new RelayCommand(
                     () => Songs.Add(new Song()
                     {
@@ -143,9 +140,12 @@ namespace C0AGQP_HFT_2021221.WPFClient
                     () => Songs.Update(SelectedSong));
                 DeleteSongCommand = new RelayCommand(
                     () => Songs.Delete(SelectedSong.Id),
-                    () => SelectedSong != null);
+                    () => { return SelectedSong != null; });
+                SelectedAuthor = new Author();
+                SelectedAlbum = new Album();
                 SelectedSong = new Song();
             }
+            OnPropertyChanged();
         }
     }
 }
