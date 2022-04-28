@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:C0AGQP_HFT_2021221.WPFClient"
         mc:Ignorable="d"
-        Title="Author Editor" Height="900" Width="1600">
+        Title="Author Editor" Height="1200" Width="1600">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
@@ -43,6 +43,7 @@
         <StackPanel Grid.Column="1" Grid.Row="1">
             <Label Content="Name" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedAlbum.Name}" Padding="10" Margin="0,0,0,30"/>
+            <Label Content="Pick All Three Before Using Commands!" />
             <Button Content="Create Album" Command="{Binding CreateAlbumCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete Album" Command="{Binding DeleteAlbumCommand}" Margin="10" Padding="10"/>
             <Button Content="Update Album" Command="{Binding UpdateAlbumCommand}" Margin="10" Padding="10"/>
@@ -57,6 +58,7 @@
         <StackPanel Grid.Column="1" Grid.Row="2">
             <Label Content="Title" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedSong.Title}" Padding="10" Margin="0,0,0,30"/>
+            <Label Content="Pick All Three Before Using Commands!" />
             <Button Content="Create Song" Command="{Binding CreateSongCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete Song" Command="{Binding DeleteSongCommand}" Margin="10" Padding="10"/>
             <Button Content="Update Song" Command="{Binding UpdateSongCommand}" Margin="10" Padding="10"/>
