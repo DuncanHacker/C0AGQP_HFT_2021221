@@ -17,12 +17,10 @@ namespace C0AGQP_HFT_2021221.Endpoint.Controllers
 	{
 		IAlbumLogic albumLogic;
 		ISongLogic songLogic;
-		IHubContext<SignalRHub> hub;
-		public QueryController(IAlbumLogic albumLogic, ISongLogic songLogic, IHubContext<SignalRHub> hub)
+		public QueryController(IAlbumLogic albumLogic, ISongLogic songLogic)
 		{
 			this.albumLogic = albumLogic;
 			this.songLogic = songLogic;
-			this.hub = hub;
 		}
 
 		// GET: /query/ListAviciiSongs
@@ -91,6 +89,16 @@ namespace C0AGQP_HFT_2021221.Endpoint.Controllers
 		public IEnumerable<Song> QueryEleven()
 		{
 			return songLogic.RitaOraPopSongs();
+		}
+        [HttpGet]
+		public int QueryTwelve()
+        {
+			return songLogic.HowManyDuaLipaSongs();
+        }
+		[HttpGet]
+		public int QueryThirteen()
+		{
+			return songLogic.HowManyJustinSongs();
 		}
 	}
 }

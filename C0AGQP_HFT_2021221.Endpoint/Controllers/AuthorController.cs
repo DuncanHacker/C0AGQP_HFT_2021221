@@ -57,9 +57,9 @@ namespace C0AGQP_HFT_2021221.Endpoint.Controllers
 		[HttpDelete("{id}")]
 		public void Delete(int id)
 		{
-			var actorToDelete = authorLogic.Read(id);
+			var authorToDelete = authorLogic.Read(id);
 			authorLogic.Delete(id);
-			hub.Clients.All.SendAsync("AuthorDeleted", actorToDelete);
+			hub.Clients.All.SendAsync("AuthorDeleted", authorToDelete);
 		}
 	}
 }

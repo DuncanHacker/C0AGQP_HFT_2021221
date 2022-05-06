@@ -43,6 +43,12 @@
         <StackPanel Grid.Column="1" Grid.Row="1">
             <Label Content="Name" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedAlbum.Name}" Padding="10" Margin="0,0,0,30"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Non-Crud:"/>
+                <Label Content="{Binding Query1}" ContentStringFormat="How Many Dua Lipa Albums: {0}"/>
+                <Label Content="{Binding Query2}" ContentStringFormat="Albums from 2015: {0}"/>
+                <Label Content="{Binding Query3}" ContentStringFormat="MGK Albums from 2020: {0}"/>
+            </StackPanel>
             <Label Content="Pick All Three Before Using Commands!" />
             <Button Content="Create Album" Command="{Binding CreateAlbumCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete Album" Command="{Binding DeleteAlbumCommand}" Margin="10" Padding="10"/>
@@ -58,10 +64,16 @@
         <StackPanel Grid.Column="1" Grid.Row="2">
             <Label Content="Title" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedSong.Title}" Padding="10" Margin="0,0,0,30"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Non-Crud:"/>
+                <Label Content="{Binding Query4}" ContentStringFormat="How Many Dua Lipa Songs: {0}"/>
+                <Label Content="{Binding Query5}" ContentStringFormat="How Many Justin Bieber Songs: {0}"/>
+            </StackPanel>
             <Label Content="Pick All Three Before Using Commands!" />
             <Button Content="Create Song" Command="{Binding CreateSongCommand}" Margin="10" Padding="10"/>
             <Button Content="Delete Song" Command="{Binding DeleteSongCommand}" Margin="10" Padding="10"/>
             <Button Content="Update Song" Command="{Binding UpdateSongCommand}" Margin="10" Padding="10"/>
+            
         </StackPanel>
     </Grid>
 </Window>

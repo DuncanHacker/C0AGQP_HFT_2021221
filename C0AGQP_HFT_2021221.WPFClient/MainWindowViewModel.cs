@@ -19,6 +19,12 @@ namespace C0AGQP_HFT_2021221.WPFClient
         public RestCollection<Album> Albums { get; set; }
         public RestCollection<Song> Songs { get; set; }
 
+        public int Query1 { get; set; }
+        public int Query2 { get; set; }
+        public int Query3 { get; set; }
+        public int Query4 { get; set; }
+        public int Query5 { get; set; }
+
         private Author selectedAuthor;
         public Author SelectedAuthor
         {
@@ -103,6 +109,13 @@ namespace C0AGQP_HFT_2021221.WPFClient
                 Authors = new RestCollection<Author>("http://localhost:29693/", "author", "hub");
                 Albums = new RestCollection<Album>("http://localhost:29693/", "album", "hub");
                 Songs = new RestCollection<Song>("http://localhost:29693/", "song", "hub");
+
+                Query1 = new RestService("http://localhost:29693/").GetSingle<int>("query/QueryOne");
+                Query2 = new RestService("http://localhost:29693/").GetSingle<int>("query/QueryTwo");
+                Query3 = new RestService("http://localhost:29693/").GetSingle<int>("query/QueryThree");
+                Query4 = new RestService("http://localhost:29693/").GetSingle<int>("query/QueryTwelve");
+                Query5 = new RestService("http://localhost:29693/").GetSingle<int>("query/QueryThirteen");
+
                 CreateAuthorCommand = new RelayCommand(
                     () => Authors.Add(new Author()
                     {
@@ -145,7 +158,7 @@ namespace C0AGQP_HFT_2021221.WPFClient
                 SelectedAlbum = new Album();
                 SelectedSong = new Song();
             }
-            OnPropertyChanged();
+            
         }
     }
 }
