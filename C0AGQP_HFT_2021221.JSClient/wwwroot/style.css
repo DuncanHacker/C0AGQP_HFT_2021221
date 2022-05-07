@@ -30,6 +30,21 @@ th{
     font-weight: bolder;
 }
 
+#updateformdiv {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#updateformdiv label, button, input {
+    margin: 10px;
+    padding: 5px;
+}
+
+#updateformdiv label {
+    font-weight: bolder;
+}
+
 table button{
     padding: 2px;
 }

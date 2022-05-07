@@ -13,6 +13,37 @@
         <input type="text" id="authorname" />
         <button type="button" onclick="create()">Add Author</button>
     </div>
+
+    <div id="updateformdiv">
+        <label>Author Name</label>
+        <input type="text" id="authornametoupdate" />
+        <button type="button" onclick="update()">Update Author</button>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th>(NonCrud 1) How Many Dua Lipa Albums:</th>
+                <td id="one"></td>
+            </tr>
+        </table>
+        <button type="button" onclick="QueryOne()">Show!</button>
+        <table>
+            <tr>
+                <th>(NonCrud 2) Albums from 2015: </th>
+                <td id="two"></td>
+            </tr>
+        </table>
+        <button type="button" onclick="QueryTwo()">Show!</button>
+        <table>
+            <tr>
+                <th>(NonCrud 3) Machine Gun Kelly Albums from 2020: </th>
+                <td id="three"></td>
+            </tr>
+        </table>
+        <button type="button" onclick="QueryThree()">Show!</button>
+    </div>
+
     <table>
         <thead>
             <tr>
